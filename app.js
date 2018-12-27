@@ -22,5 +22,5 @@ mongoose.connect(config.getDbConnectionString(), { useNewUrlParser: true }, () =
 userAPI(app);
 postAPI(app);
 
-app.listen(port, '0.0.0.0')
+app.listen(process.env.PORT, '0.0.0.0')
 
