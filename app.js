@@ -2,7 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const app = express()
-const port = process.env.port
+const port = process.env.port || 3005
 const config = require('./config/index')
 
 const userAPI = require('./apis/userAPI')
@@ -22,5 +22,5 @@ mongoose.connect(config.getDbConnectionString(), { useNewUrlParser: true }, () =
 userAPI(app);
 postAPI(app);
 
-app.listen(process.env.PORT, '0.0.0.0')
+app.listen(port, () => console.log('server is ready'))
 
